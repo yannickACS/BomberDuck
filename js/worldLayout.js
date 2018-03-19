@@ -9,10 +9,11 @@ function worldLayout ( level ){
 	// 		console.log(level[ligne][caseElement]);
 	// 	}
 	// }
+	gameBoardElt.innerHTML = "";
 	for ( let i = 0; i < levelHeight; i++){
 		createRow(i);
 		for ( let j = 0; j < levelWidth; j++){
-			console.log(level[i][j]);
+			// console.log(level[i][j]);
 			let eltToLayout = level[i][j];
 			switch (eltToLayout){
 				case "#" :
@@ -26,8 +27,8 @@ function worldLayout ( level ){
 				break;
 				case "m":
 				monsterLayout(i);
-				default:
-				console.log("erreur dans l'affichage du niveau");
+				// default:
+				// console.log("erreur dans l'affichage du niveau");
 			}
 		}
 	}
@@ -65,6 +66,12 @@ function monsterLayout(i){
 	let rowPlacement = document.getElementById ( "row" + i );
 	monsterElt.className = "monster";
 	monsterElt.className += " cell";
+	monsterElt.className += " monsterNumber" + nombreMonstre.shift();
 	rowPlacement.appendChild(monsterElt);
 }
-worldLayout(level);
+function turn(){
+	moveMonsters();
+	worldLayout(level);
+}
+setInterval(turn, 600);
+
