@@ -4,9 +4,10 @@ const heroElt = document.querySelector("div.hero");
 
 
 
-document.addEventListener("keydown", function (e){
+document.addEventListener("keyup", function (e){
 	let activeKey = e.code;
 	console.log(activeKey);
+	e.stopPropagation();
 	switch (activeKey){
 		case "ArrowUp":
 		heroMoveUp();
@@ -24,5 +25,5 @@ document.addEventListener("keydown", function (e){
 		heroDropBomb();		
 		break;
 	}
-
+	
 });

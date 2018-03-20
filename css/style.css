@@ -3,10 +3,11 @@ body{
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	height: 500px;
 }
 .cell{
-	height: 20px;
-	width: 20px;
+	height: 40px;
+	width: 40px;
 	position: relative;
 }
 .monster{
@@ -14,6 +15,8 @@ body{
 }
 .hero{
 	background-color: green;
+	position: relative;
+	box-sizing: content-box;
 }
 .path{
 	background-color: transparent;
@@ -22,7 +25,7 @@ body{
 	background-color: black;
 }
 .row{
-	min-height: 20px;
+	min-height: 40px;
 	min-width: 300px;
 	display: flex;
 	flex-direction: row;
