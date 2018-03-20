@@ -14,12 +14,17 @@ let level = [
 				["#","#","#","#","#","#","#","#","#","#","#","#","#","#","#"] ];
 
 
-const legend = { "#" : "wall", "" : "path", "h" : "hero", "m" : "monster", "b" : "bomb", "bh" : "bomb + hero",};
+const legend = { "#" : "wall", "" : "path", "h" : "hero", "m" : "monster", "b" : "bomb", "x" : "explosion"};
 const alphabet = [ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t"];
 
 let levelHeight = level.length;
 let levelWidth = level[0].length;
 let heroPosition = [1, 1];
+let bombIsSet = false;
+let bombPosition;
+let bombElt;
+let areaOfEffect = [];
+let timeOutBomb;
 let monstrePosition = [];  // stocker comme [posY, posX]
 let nombreMonstreInit = 0;
 let nombreMonstre = [];
@@ -171,20 +176,39 @@ var bomb = document.getElementById('bomb');
 
 
 function heroDropBomb(){
-	let bombPosition = heroPosition;
-	var test = idGrid[bombPosition[0]][bombPosition[1]];
-	var idGridPosition = document.getElementById (test);
-	
-	idGridPosition.style.backgroundColor = "Yellow";
-	
-	//level = "Yellow";
-	
-
-	console.log(idGrid[bombPosition[0]][bombPosition[1]]);
-	console.log(heroPosition);
-	console.log("position dom : " + idGridPosition);	
+	if ( !bombIsSet ){
+	bombPosition = heroPosition;
+	bombIsSet = true;
+	var catchId = idGrid[bombPosition[0]][bombPosition[1]];
+	bombElt = document.getElementById (catchId);
+	timeOutBomb = setTimeout( bombExplosion, 3000);
+	defineAreaofEffect(bombPosition);
+	}
 }
-
+function defineAreaofEffect( bombposition ){
+	areaOfEffect.push(bombposition);
+	areaOfEffect.push(vectorPlus(bombposition, directionVecteurs["up"]));
+	areaOfEffect.push(vectorPlus(bombposition, directionVecteurs["down"]));
+	areaOfEffect.push(vectorPlus(bombposition, directionVecteurs["left"]));
+	areaOfEffect.push(vectorPlus(bombposition, directionVecteurs["right"]));
+	console.log(areaOfEffect);
+}
+function bombExplosion(){
+	bombIsSet = false;
+	for ( let blastCell of areaOfEffect ){
+		console.log('test' + blastCell);
+		if (level[blastCell[0]][blastCell[1]] == "m" ){
+			
+			nombreMonstreInit --;
+			level[blastCell[0]][blastCell[1]] = "x";
+		}
+		if (level[blastCell[0]][blastCell[1]] == "h" ){
+			
+			gameover(heroPosition);
+		}
+	}
+	console.log("boom");
+}
 
 
 

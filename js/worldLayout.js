@@ -27,6 +27,7 @@ function worldLayout ( level ){
 				break;
 				case "m":
 				monsterLayout(i, j);
+			
 				// default:
 				// console.log("erreur dans l'affichage du niveau");
 			}
@@ -56,6 +57,11 @@ function pathLayout(i, j){
 	pathElt.id = alphabet[i] + j;
 	pathElt.className = "path";
 	pathElt.className += " cell";
+	if (bombIsSet){
+		if ((bombPosition[0] == i ) && (bombPosition[1] == j)){
+			pathElt.className += " bomb";
+		}
+	}
 	rowPlacement.appendChild(pathElt);
 }
 

@@ -39,3 +39,9 @@ body{
 	justify-content: center;
 	align-items: center;
 }
+
+.bomb{
+	background-color: darkblue;
+	box-sizing: content-box;
+}
+
