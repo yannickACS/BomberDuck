@@ -1,4 +1,3 @@
-
 let level = [
 				["#","#","#","#","#","#","#","#","#","#","#","#","#","#","#"],
 				["#","h", "", "", "", "", "", "", "", "", "", "", "", "","#"],
@@ -15,7 +14,7 @@ let level = [
 				["#","#","#","#","#","#","#","#","#","#","#","#","#","#","#"] ];
 
 
-const legend = { "#" : "wall", "" : "path", "h" : "hero", "m" : "monster", "b" : "bomb" };
+const legend = { "#" : "wall", "" : "path", "h" : "hero", "m" : "monster", "b" : "bomb", "bh" : "bomb + hero",};
 const alphabet = [ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t"];
 
 let levelHeight = level.length;
@@ -31,6 +30,7 @@ const directionVecteurs = { "up" : [ -1, 0 ],
 							"right" : [ 0, 1 ] };
 const idGrid = mapCellsId(level);
 
+console.log(idGrid);
 
 function mapCellsId(level){
 	let gridOfId = [];
@@ -84,7 +84,7 @@ function findHeroPosInDom ( heroPosition ){
 
 
 
-// monstre
+ // monstre
 
 function moveMonsters(){
 	
@@ -161,9 +161,34 @@ function heroMoveRight(){
 		heroPosition = newHeroPosition;
 	}
 }
-function heroDropBomb(){ //Press SpaceBar to drop the Bomb
+
+
+//Bomb
+var bomb = document.getElementById('bomb');
+
+
+
+
+
+function heroDropBomb(){
+	let bombPosition = heroPosition;
+	var test = idGrid[bombPosition[0]][bombPosition[1]];
+	var idGridPosition = document.getElementById (test);
 	
+	idGridPosition.style.backgroundColor = "Yellow";
+	
+	//level = "Yellow";
+	
+
+	console.log(idGrid[bombPosition[0]][bombPosition[1]]);
+	console.log(heroPosition);
+	console.log("position dom : " + idGridPosition);	
 }
+
+
+
+
+
 //  fin de partie
 function gameover(emplacementMort){
 	clearInterval(boucleJeu);
