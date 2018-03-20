@@ -21,7 +21,7 @@ const alphabet = [ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "
 let levelHeight = level.length;
 let levelWidth = level[0].length;
 let heroPosition = [1, 1];
-let monstrePosition = [];// stocker comme [posY, posX]
+let monstrePosition = [];  // stocker comme [posY, posX]
 let nombreMonstreInit = 0;
 let nombreMonstre = [];
 const directions = ["up", "down", "left", "right"];
@@ -30,6 +30,8 @@ const directionVecteurs = { "up" : [ -1, 0 ],
 							"left" : [ 0, -1 ],
 							"right" : [ 0, 1 ] };
 const idGrid = mapCellsId(level);
+
+
 function mapCellsId(level){
 	let gridOfId = [];
 	for (let i = 0; i < levelHeight; i++){
@@ -42,7 +44,8 @@ function mapCellsId(level){
 	return gridOfId;
 
 }
-function monstreInitialPosition(level){
+
+function monstreInitialPosition(level){    //Spawn of the monster
 	for (let i = 0; i < levelHeight; i++){
 		for (let j = 0; j < levelWidth; j++){
 			// console.log(level[i][j]);
@@ -56,6 +59,7 @@ function monstreInitialPosition(level){
 		// }
 	}
 }
+
 function affecterNumeroMonstre(){
 	if ( nombreMonstreInit > 0 ){
 		for ( let i = 0; i < nombreMonstreInit; i++){
@@ -76,8 +80,14 @@ function findHeroPosInDom ( heroPosition ){
 
 }
 
+
+
+
+
 // monstre
+
 function moveMonsters(){
+	
 	for (let i = 0; i < levelHeight; i++){
 		for (let j = 0; j < levelWidth; j++){
 			if (level[i][j] == "m"){
@@ -85,7 +95,9 @@ function moveMonsters(){
 				let directionChoix = randomElement(directions);
 				let directionVector = directionVecteurs[directionChoix];
 				let destinationVector = vectorPlus( vector, directionVector );
-				console.log( 'vecteur destination : ' + destinationVector );
+				if (level[destinationVector[0]][destinationVector[1]] == "h"){
+					gameover(destinationVector);
+				} 
 				if (( level[destinationVector[0]][destinationVector[1]] != "#" )
 					&& ( level[destinationVector[0]][destinationVector[1]] != "m" ) 
 					&& ( level[destinationVector[0]][destinationVector[1]] != "h" )) {
@@ -96,7 +108,11 @@ function moveMonsters(){
 		}
 	}	
 }
-// moves hero
+
+
+
+
+// Hero Moves 4 dir [up, down, left, right]
 
 function heroMoveUp(){
 	let newHeroPosition = vectorPlus(heroPosition, directionVecteurs["up"]);
@@ -109,6 +125,7 @@ function heroMoveUp(){
 		heroPosition = newHeroPosition;
 	}
 }
+
 function heroMoveDown(){
 	let newHeroPosition = vectorPlus(heroPosition, directionVecteurs["down"]);
 	if (level[newHeroPosition[0]][newHeroPosition[1]] == "m" ){
@@ -120,6 +137,7 @@ function heroMoveDown(){
 		heroPosition = newHeroPosition;
 	}
 }
+
 function heroMoveLeft(){
 	let newHeroPosition = vectorPlus(heroPosition, directionVecteurs["left"]);
 	if (level[newHeroPosition[0]][newHeroPosition[1]] == "m" ){
@@ -131,6 +149,7 @@ function heroMoveLeft(){
 		heroPosition = newHeroPosition;
 	}
 }
+
 function heroMoveRight(){
 	let newHeroPosition = vectorPlus(heroPosition, directionVecteurs["right"]);
 	if (level[newHeroPosition[0]][newHeroPosition[1]] == "m" ){
@@ -142,7 +161,7 @@ function heroMoveRight(){
 		heroPosition = newHeroPosition;
 	}
 }
-function heroDropBomb(){
+function heroDropBomb(){ //Press SpaceBar to drop the Bomb
 	
 }
 //  fin de partie

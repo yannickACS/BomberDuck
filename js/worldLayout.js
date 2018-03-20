@@ -33,12 +33,14 @@ function worldLayout ( level ){
 		}
 	}
 }
+
 function createRow(i){
 	let rowElt = document.createElement("article");
 	rowElt.className = "row";
 	rowElt.id = "row" + i;
 	gameBoardElt.appendChild(rowElt);
 }
+
 function wallLayout(i, j){
 	let wallElt = document.createElement("div");
 	let rowPlacement = document.getElementById ( "row" + i );
@@ -46,8 +48,8 @@ function wallLayout(i, j){
 	wallElt.className = "wall";
 	wallElt.className += " cell";
 	rowPlacement.appendChild(wallElt);
-
 }
+
 function pathLayout(i, j){
 	let pathElt = document.createElement("div");
 	let rowPlacement = document.getElementById ( "row" + i );
@@ -56,6 +58,7 @@ function pathLayout(i, j){
 	pathElt.className += " cell";
 	rowPlacement.appendChild(pathElt);
 }
+
 function heroLayout(i, j){
 	let pathElt = document.createElement("div");
 	let heroElt = document.createElement("div");
@@ -79,13 +82,15 @@ function monsterLayout(i, j){
 	pathElt.id = alphabet[i] + j;
 	monsterElt.className = "monster";
 	monsterElt.className += " cell";
-	monsterElt.className += " monsterNumber" + nombreMonstre.shift();
+	//monsterElt.className += " monsterNumber" + nombreMonstre.shift();
 	pathElt.appendChild(monsterElt);
 	rowPlacement.appendChild(pathElt);
 }
+
 function turn(){
 	moveMonsters();
 	worldLayout(level);
 }
+
 let boucleJeu = setInterval(turn, 100);
 
