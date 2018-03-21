@@ -1,12 +1,12 @@
-/*var mySound;
+var mySound;
 var myMusic;
-//var x = document.getElementById("myGameMusic"); //Looping music
-/*function enableLoop() { 
+var x = document.getElementById("myGameMusic"); //Looping music
+function enableLoop() { 
     x.loop = true;
     x.load();
-} */
+} 
 
-/*function startGame() {
+function startGame() {
     console.log (startGame);
     myMusic = new sound("media/music/Level-Music-Ext.mp3");
     myMusic.play();
@@ -27,4 +27,4 @@ function sound(src) {
     this.stop = function(){
         this.sound.pause();
     }    
-} */
+} 

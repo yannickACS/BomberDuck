@@ -3,12 +3,8 @@ body{
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
-<<<<<<< HEAD
 	height: 920px;
-=======
-	height: 500px;
-
->>>>>>> d96c8f7393106a4454239f9b45d4269e80c3b078
+	position: fixed;
 }
 .cell{
 	height: 40px;
@@ -17,10 +13,9 @@ body{
 }
 .monster{
 	background-color: red;
-
 }
 .hero{
-	background-color: antiquewhite;
+	background-color: green;
 	position: relative;
 	box-sizing: content-box;
 }
@@ -30,14 +25,12 @@ body{
 .wall{
 	background-image:url(../media/tile_wall.png);
 	box-shadow: 10px 10px 0px rgba(54, 54, 54, 0.400); 
-
 }
 .row{
 	min-height: 40px;
 	min-width: 300px;
 	display: flex;
 	flex-direction: row;
-	
 	
 }
 #gameBoard{
@@ -47,7 +40,6 @@ body{
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-
 }
 
 .bomb{

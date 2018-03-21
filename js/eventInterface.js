@@ -23,5 +23,5 @@ document.addEventListener("keyup", function (e){
 		heroDropBomb();		
 		break;
 	}
-	
+	e.preventDefault();
 });
