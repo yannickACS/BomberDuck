@@ -231,14 +231,10 @@ function gameover(emplacementMort){
 	alert('Game Over!');
 	console.log("gameover");
 }
-<<<<<<< HEAD
 function victoire(){
 	clearInterval(boucleJeu);
 	console.log("victoire");
 }
-=======
-
->>>>>>> d96c8f7393106a4454239f9b45d4269e80c3b078
 // console.log ( 'test random tableau : ' + randomElement(directions));
 monstreInitialPosition(level);
 affecterNumeroMonstre(nombreMonstreInit);
