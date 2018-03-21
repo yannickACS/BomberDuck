@@ -4,6 +4,7 @@ body{
 	justify-content: center;
 	align-items: center;
 	height: 500px;
+
 }
 .cell{
 	height: 40px;
@@ -15,15 +16,17 @@ body{
 
 }
 .hero{
-	background-color: green;
+	background-color: antiquewhite;
 	position: relative;
 	box-sizing: content-box;
 }
 .path{
-	background-image:url(../media/floor.png)
+	background-image:url(../media/tile_grass.png);
 }
 .wall{
-	background-image:url(../media/brick.png)
+	background-image:url(../media/tile_wall.png);
+	box-shadow: 10px 10px 0px rgba(54, 54, 54, 0.400); 
+
 }
 .row{
 	min-height: 40px;
@@ -40,6 +43,7 @@ body{
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+
 }
 
 .bomb{
