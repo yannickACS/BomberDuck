@@ -1,9 +1,9 @@
 body{
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
-	height: 500px;
+	height: 920px;
 }
 .cell{
 	height: 40px;
@@ -32,8 +32,8 @@ body{
 	
 }
 #gameBoard{
-	width: 500px;
-	height: 300px;
+	/*width: 500px;
+	height: 300px;*/
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -44,4 +44,21 @@ body{
 	background-color: darkblue;
 	box-sizing: content-box;
 }
-
+.explosion{
+	background-color: yellow;
+}
+#zoneInfo{
+	width: 594px;
+	border: 2px solid black;
+}
+header {
+    -webkit-animation: skew 0.75s ease-in infinite;
+}
+@-webkit-keyframes skew {
+    0%, 100% {
+        transform: skewX(15deg) skewY(2deg);
+    }
+    50% {
+        transform: skewX(-15deg) skewY(-2deg);
+    }
+}
