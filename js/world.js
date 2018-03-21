@@ -180,6 +180,7 @@ function heroMoveRight(){
 
 function heroDropBomb(){
 	if ( !bombIsSet ){
+		mySound.play();
 	bombPosition = heroPosition;
 	bombIsSet = true;
 	var catchId = idGrid[bombPosition[0]][bombPosition[1]];
@@ -226,6 +227,7 @@ function stopExplosion(){
 //  fin de partie
 function gameover(emplacementMort){
 	clearInterval(boucleJeu);
+	myMusic.stop();
 	gameoverLayout();
 	// console.log("gameover");
 }

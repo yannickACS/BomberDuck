@@ -9,6 +9,7 @@ function enableLoop() {
 function startGame() {
     console.log (startGame);
     myMusic = new sound("media/music/Level-Music-Ext.mp3");
+    mySound = new sound("media/music/sound/Bomb+2.mp3");
     myMusic.play();
 }
 
