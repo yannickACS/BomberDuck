@@ -138,6 +138,7 @@ function gameoverLayout(){
 	let infoElt = document.querySelector("#zoneInfo");
 	let titreElt = document.createElement("h3");
 	titreElt.textContent = "PERDU !!"
+	titreElt.className = "titreAnim";
 	infoElt.innerHTML = "";
 	infoElt.appendChild(titreElt);
 }
@@ -145,6 +146,7 @@ function victoireLayout(){
 	let infoElt = document.querySelector("#zoneInfo");
 	let titreElt = document.createElement("h3");
 	titreElt.textContent = "VICTOIRE !!"
+	titreElt.className = "titreAnim";
 	infoElt.innerHTML = "";
 	infoElt.appendChild(titreElt);
 }
