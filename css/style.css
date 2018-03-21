@@ -12,6 +12,7 @@ body{
 }
 .monster{
 	background-color: red;
+
 }
 .hero{
 	background-color: green;
@@ -19,16 +20,17 @@ body{
 	box-sizing: content-box;
 }
 .path{
-	background-color: transparent;
+	background-image:url(../media/floor.png)
 }
 .wall{
-	background-color: black;
+	background-image:url(../media/brick.png)
 }
 .row{
 	min-height: 40px;
 	min-width: 300px;
 	display: flex;
 	flex-direction: row;
+	
 	
 }
 #gameBoard{
