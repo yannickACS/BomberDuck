@@ -125,7 +125,35 @@ function monsterLayout(i, j){
 // 		explosionElt.classList.toggle("explosion");
 // 	}
 // }
+function updateInfos(){
+	let monsterInfoCellElt = document.querySelector("p.displayMonsterCell");
+	let levelInfoCellElt = document.querySelector(".displayLevelCell");
+	monsterInfoCellElt.innerHTML = "";
+	levelInfoCellElt.innerHTML = "";
+	monsterInfoCellElt.textContent = nombreMonstreInit;
+	levelInfoCellElt.textContent = 1;
+
+}
+function gameoverLayout(){
+	let infoElt = document.querySelector("#zoneInfo");
+	let titreElt = document.createElement("h3");
+	titreElt.textContent = "PERDU !!"
+	infoElt.innerHTML = "";
+	infoElt.appendChild(titreElt);
+}
+function victoireLayout(){
+	let infoElt = document.querySelector("#zoneInfo");
+	let titreElt = document.createElement("h3");
+	titreElt.textContent = "VICTOIRE !!"
+	infoElt.innerHTML = "";
+	infoElt.appendChild(titreElt);
+}
+
+
+
+
 function turn(){
+	updateInfos()
 	if ( nombreMonstreInit > 0 ){
 		moveMonsters();
 	} else {

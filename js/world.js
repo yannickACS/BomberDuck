@@ -226,10 +226,12 @@ function stopExplosion(){
 //  fin de partie
 function gameover(emplacementMort){
 	clearInterval(boucleJeu);
+	gameoverLayout();
 	console.log("gameover");
 }
 function victoire(){
 	clearInterval(boucleJeu);
+	victoireLayout();
 	console.log("victoire");
 }
 // console.log ( 'test random tableau : ' + randomElement(directions));
