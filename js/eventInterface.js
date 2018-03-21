@@ -2,8 +2,6 @@ const heroElt = document.querySelector("div.hero");
 
 
 
-
-
 document.addEventListener("keyup", function (e){
 	let activeKey = e.code;
 	console.log(activeKey);

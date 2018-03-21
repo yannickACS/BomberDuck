@@ -27,18 +27,21 @@ function worldLayout ( level ){
 				break;
 				case "m":
 				monsterLayout(i, j);
+			
 				// default:
 				// console.log("erreur dans l'affichage du niveau");
 			}
 		}
 	}
 }
+
 function createRow(i){
 	let rowElt = document.createElement("article");
 	rowElt.className = "row";
 	rowElt.id = "row" + i;
 	gameBoardElt.appendChild(rowElt);
 }
+
 function wallLayout(i, j){
 	let wallElt = document.createElement("div");
 	let rowPlacement = document.getElementById ( "row" + i );
@@ -46,16 +49,22 @@ function wallLayout(i, j){
 	wallElt.className = "wall";
 	wallElt.className += " cell";
 	rowPlacement.appendChild(wallElt);
-
 }
+
 function pathLayout(i, j){
 	let pathElt = document.createElement("div");
 	let rowPlacement = document.getElementById ( "row" + i );
 	pathElt.id = alphabet[i] + j;
 	pathElt.className = "path";
 	pathElt.className += " cell";
+	if (bombIsSet){
+		if ((bombPosition[0] == i ) && (bombPosition[1] == j)){
+			pathElt.className += " bomb";
+		}
+	}
 	rowPlacement.appendChild(pathElt);
 }
+
 function heroLayout(i, j){
 	let pathElt = document.createElement("div");
 	let heroElt = document.createElement("div");
@@ -79,13 +88,15 @@ function monsterLayout(i, j){
 	pathElt.id = alphabet[i] + j;
 	monsterElt.className = "monster";
 	monsterElt.className += " cell";
-	monsterElt.className += " monsterNumber" + nombreMonstre.shift();
+	//monsterElt.className += " monsterNumber" + nombreMonstre.shift();
 	pathElt.appendChild(monsterElt);
 	rowPlacement.appendChild(pathElt);
 }
+
 function turn(){
 	moveMonsters();
 	worldLayout(level);
 }
+
 let boucleJeu = setInterval(turn, 100);
 
