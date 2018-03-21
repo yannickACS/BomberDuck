@@ -20,6 +20,9 @@ body{
 	align-items: center;
 	height: 920px;
 	position: fixed;
+	width: 100%;
+	background-image: url(../media/background/8_bit_adventure_anthology.jpg);
+	background-repeat: no-repeat;
 }
 .cell{
 	height: 40px;
@@ -27,26 +30,30 @@ body{
 	position: relative;
 }
 .monster{
-	background-color: red;
+	background-image:url(../media/darkDuck.png);
+	background-repeat: no-repeat;
 }
 .hero{
-	background-color: green;
+	background-image:url(../media/ducky.png);
 	position: relative;
 	box-sizing: content-box;
+	background-repeat: no-repeat;
 }
 .path{
-	background-image:url(../media/tile_grass.png);
+	
 }
 .wall{
-	background-image:url(../media/tile_wall.png);
-	box-shadow: 10px 10px 0px rgba(54, 54, 54, 0.400); 
+	background-image:url(../media/brick2.png);
+	background-repeat: no-repeat;
+	box-shadow: 10px 10px 0px rgba(54, 54, 54, 0.400);
+	 
 }
 .row{
 	min-height: 40px;
 	min-width: 300px;
 	display: flex;
 	flex-direction: row;
-	
+	background-image:url(../media/tile_grass.png);
 }
 #gameBoard{
 	/*width: 500px;
@@ -58,16 +65,34 @@ body{
 }
 
 .bomb{
-	background-color: darkblue;
+	background-image:url(../media/bomb2.png);
 	box-sizing: content-box;
+	background-repeat: no-repeat;
 }
 .explosion{
-	background-color: yellow;
+	background-image: url(../media/explosion1sized.png);
+	background-repeat: no-repeat;
 }
 #zoneInfo{
 	width: 594px;
 	border: 2px solid black;
 }
+
+.displayMonstersLeftElt{
+	background-color: white;
+	display: flex;
+}
+
+.displayLevelElt{
+	background-color: white;
+	display: flex;
+}
+
+h1{
+	background-color: white;
+	display: flex;
+}
+
 header {
     -webkit-animation: skew 0.75s ease-in infinite;
 }
