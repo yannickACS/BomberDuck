@@ -37,7 +37,7 @@ const directionVecteurs = { "up" : [ -1, 0 ],
 							"right" : [ 0, 1 ] };
 const idGrid = mapCellsId(level);
 
-console.log(idGrid);
+// console.log(idGrid);
 
 function mapCellsId(level){
 	let gridOfId = [];
@@ -203,7 +203,7 @@ function bombExplosion(){
 	timeOutExplosion = setTimeout(stopExplosion, 1000);
 
 	for ( let blastCell of areaOfEffect ){
-		console.log('test' + blastCell);
+		// console.log('test' + blastCell);
 		if (level[blastCell[0]][blastCell[1]] == "m" ){
 		
 			nombreMonstreInit --;
@@ -215,7 +215,7 @@ function bombExplosion(){
 			gameover(heroPosition);
 		}
 	}
-	console.log("boom");
+	// console.log("boom");
 }
 function stopExplosion(){
 	explosionRun = false;
@@ -227,12 +227,12 @@ function stopExplosion(){
 function gameover(emplacementMort){
 	clearInterval(boucleJeu);
 	gameoverLayout();
-	console.log("gameover");
+	// console.log("gameover");
 }
 function victoire(){
 	clearInterval(boucleJeu);
 	victoireLayout();
-	console.log("victoire");
+	// console.log("victoire");
 }
 // console.log ( 'test random tableau : ' + randomElement(directions));
 monstreInitialPosition(level);
