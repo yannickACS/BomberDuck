@@ -234,7 +234,7 @@ function gameover(emplacementMort){
 function victoire(){
 	clearInterval(boucleJeu);
 	console.log("victoire");
-}
+} 
 // console.log ( 'test random tableau : ' + randomElement(directions));
 monstreInitialPosition(level);
 affecterNumeroMonstre(nombreMonstreInit);
