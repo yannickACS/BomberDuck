@@ -1,3 +1,18 @@
+@font-face {
+	font-family: 'techno_til_dawn';
+    src: url('../media/font/techno_til_dawn-webfont.woff2') format('woff2'),
+         url('../media/font//techno_til_dawn-webfont.woff2.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+*
+
+{
+	font-family: techno_til_dawn;
+}
+
 body{
 	display: flex;
 	flex-direction: column;
