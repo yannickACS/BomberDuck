@@ -27,7 +27,7 @@ function worldLayout ( level ){
 				break;
 				case "m":
 				monsterLayout(i, j);
-			
+				break;
 				// default:
 				// console.log("erreur dans l'affichage du niveau");
 			}
@@ -57,9 +57,15 @@ function pathLayout(i, j){
 	pathElt.id = alphabet[i] + j;
 	pathElt.className = "path";
 	pathElt.className += " cell";
+
 	if (bombIsSet){
 		if ((bombPosition[0] == i ) && (bombPosition[1] == j)){
 			pathElt.className += " bomb";
+		}
+	}
+	if (explosionRun){
+		if (validExplosion(i, j)){
+			pathElt.className += " explosion";
 		}
 	}
 	rowPlacement.appendChild(pathElt);
@@ -72,6 +78,16 @@ function heroLayout(i, j){
 	pathElt.className = "path";
 	pathElt.className += " cell";
 	pathElt.id = alphabet[i] + j;
+	if (bombIsSet){
+		if ((bombPosition[0] == i ) && (bombPosition[1] == j)){
+			pathElt.className += " bomb";
+		}
+	}
+	if (explosionRun){
+		if (validExplosion(i, j)){
+			pathElt.className += " explosion";
+		}
+	}
 	heroElt.className = "hero";
 	heroElt.className += " cell";
 	pathElt.appendChild(heroElt);
@@ -86,17 +102,38 @@ function monsterLayout(i, j){
 	pathElt.className = "path";
 	pathElt.className += " cell";
 	pathElt.id = alphabet[i] + j;
+	if (bombIsSet){
+		if ((bombPosition[0] == i ) && (bombPosition[1] == j)){
+			pathElt.className += " bomb";
+		}
+	}
+	if (explosionRun){
+		if (validExplosion(i, j)){
+			pathElt.className += " explosion";
+		}
+	}
 	monsterElt.className = "monster";
 	monsterElt.className += " cell";
 	//monsterElt.className += " monsterNumber" + nombreMonstre.shift();
 	pathElt.appendChild(monsterElt);
 	rowPlacement.appendChild(pathElt);
 }
-
+// function explosionLayout(areaOfEffect){
+// 	for ( let cell of areaOfEffect ){
+// 		let idCible = idGrid[cell[0]][cell[1]];
+// 		let explosionElt = document.getElementById(idCible);
+// 		explosionElt.classList.toggle("explosion");
+// 	}
+// }
 function turn(){
-	moveMonsters();
+	if ( nombreMonstreInit > 0 ){
+		moveMonsters();
+	} else {
+		victoire();
+	}
+	
 	worldLayout(level);
 }
 
-let boucleJeu = setInterval(turn, 100);
+let boucleJeu = setInterval(turn, 200);
 

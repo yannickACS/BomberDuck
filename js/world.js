@@ -25,6 +25,8 @@ let bombPosition;
 let bombElt;
 let areaOfEffect = [];
 let timeOutBomb;
+let explosionRun = false;
+let timeOutExplosion;
 let monstrePosition = [];  // stocker comme [posY, posX]
 let nombreMonstreInit = 0;
 let nombreMonstre = [];
@@ -84,9 +86,15 @@ function vectorPlus ( vecteurA, vecteurB ){
 function findHeroPosInDom ( heroPosition ){
 
 }
+function validExplosion(y, x){
+	let posATest = [y, x];
+	for (let coordExplosion of areaOfEffect){
+		if ( posATest.join() == coordExplosion.join()) return true;
+	}
+	return false;
+}
 
-
-
+// a.join() == [1,2].join()
 
 
  // monstre
@@ -169,11 +177,6 @@ function heroMoveRight(){
 
 
 //Bomb
-var bomb = document.getElementById('bomb');
-
-
-
-
 
 function heroDropBomb(){
 	if ( !bombIsSet ){
@@ -181,11 +184,12 @@ function heroDropBomb(){
 	bombIsSet = true;
 	var catchId = idGrid[bombPosition[0]][bombPosition[1]];
 	bombElt = document.getElementById (catchId);
-	timeOutBomb = setTimeout( bombExplosion, 3000);
+	timeOutBomb = setTimeout( bombExplosion, 1500);
 	defineAreaofEffect(bombPosition);
 	}
 }
 function defineAreaofEffect( bombposition ){
+	areaOfEffect = [];
 	areaOfEffect.push(bombposition);
 	areaOfEffect.push(vectorPlus(bombposition, directionVecteurs["up"]));
 	areaOfEffect.push(vectorPlus(bombposition, directionVecteurs["down"]));
@@ -195,12 +199,16 @@ function defineAreaofEffect( bombposition ){
 }
 function bombExplosion(){
 	bombIsSet = false;
+	explosionRun = true;
+	timeOutExplosion = setTimeout(stopExplosion, 1000);
+
 	for ( let blastCell of areaOfEffect ){
 		console.log('test' + blastCell);
 		if (level[blastCell[0]][blastCell[1]] == "m" ){
-			
+		
 			nombreMonstreInit --;
-			level[blastCell[0]][blastCell[1]] = "x";
+			console.log(nombreMonstreInit);
+			level[blastCell[0]][blastCell[1]] = "";
 		}
 		if (level[blastCell[0]][blastCell[1]] == "h" ){
 			
@@ -209,7 +217,9 @@ function bombExplosion(){
 	}
 	console.log("boom");
 }
-
+function stopExplosion(){
+	explosionRun = false;
+}
 
 
 
@@ -217,6 +227,10 @@ function bombExplosion(){
 function gameover(emplacementMort){
 	clearInterval(boucleJeu);
 	console.log("gameover");
+}
+function victoire(){
+	clearInterval(boucleJeu);
+	console.log("victoire");
 }
 // console.log ( 'test random tableau : ' + randomElement(directions));
 monstreInitialPosition(level);
