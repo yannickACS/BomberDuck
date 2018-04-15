@@ -150,7 +150,10 @@ function victoireLayout(){
 	infoElt.innerHTML = "";
 	infoElt.appendChild(titreElt);
 }
-
+function deadLayout(){
+	skullElt = document.querySelector('div.hero');
+	skullElt.className += " dead";
+}
 
 
 
@@ -165,5 +168,5 @@ function turn(){
 	worldLayout(level);
 }
 
-let boucleJeu = setInterval(turn, 200);
+let boucleJeu = setInterval(turn, 300);
 

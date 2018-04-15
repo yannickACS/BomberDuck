@@ -7,12 +7,9 @@
 
 }
 
-*
-
-{
-	font-family: techno_til_dawn;
+*{
+	box-sizing: border-box;
 }
-
 body{
 	display: flex;
 	flex-direction: column;
@@ -24,15 +21,18 @@ body{
 	background-image: url(../media/background/8_bit_adventure_anthology.jpg);
 	background-repeat: no-repeat;
 }
+
 .cell{
 	height: 40px;
 	width: 40px;
 	position: relative;
 }
+
 .monster{
-	background-image:url(../media/darkDuck.png);
+	background-image:url(../media/BadDuck2.png);
 	background-repeat: no-repeat;
 }
+
 .hero{
 	background-image:url(../media/ducky.png);
 	position: relative;
@@ -40,13 +40,17 @@ body{
 	background-repeat: no-repeat;
 }
 .path{
-	
+	border: 1px solid rgba(0,0,0,0.1);
+	border-radius: 5px;
+	box-sizing: border-box;
 }
 .wall{
 	background-image:url(../media/brick2.png);
 	background-repeat: no-repeat;
 	box-shadow: 10px 10px 0px rgba(54, 54, 54, 0.400);
-	 
+	border:  1px black solid;
+	box-sizing: border-box;
+	border-radius: 5px;
 }
 .row{
 	min-height: 40px;
@@ -66,32 +70,44 @@ body{
 
 .bomb{
 	background-image:url(../media/bomb2.png);
-	box-sizing: content-box;
+	box-sizing: border-box;
 	background-repeat: no-repeat;
 }
 .explosion{
-	background-image: url(../media/explosion1sized.png);
+	background-image: url(../media/explode.png);
 	background-repeat: no-repeat;
 }
 #zoneInfo{
 	width: 594px;
-	border: 2px solid black;
-}
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background: transparent;
+	}
 
 .displayMonstersLeftElt{
-	background-color: white;
+	color: rgb(255, 190, 24);
+	font-size: 17px;
+	font-family: techno_til_dawn;
 	display: flex;
 }
 
 .displayLevelElt{
-	background-color: white;
+	color: rgb(255, 190, 24);
+	font-size: 17px;
+	font-family: techno_til_dawn;
 	display: flex;
 }
 
 h1{
-	background-color: white;
+	background-color: transparent;
 	display: flex;
-}
+	color: darkgoldenrod;
+	font-size: 40px;
+	font-family: techno_til_dawn;
+	}
+
+
 
 header {
     -webkit-animation: skew 0.75s ease-in infinite;
@@ -103,4 +119,23 @@ header {
     50% {
         transform: skewX(-15deg) skewY(-2deg);
     }
+}
+
+
+h3.titreAnim{
+	-webkit-animation : titleMove 2s ease-in infinite;
+	color: rgb(255, 190, 24);
+	font-size: 33px;
+	font-family: techno_til_dawn;
+	}
+	@-webkit-keyframes titleMove {
+	25%{
+	transform: translateX(150px);
+	}
+	75%{
+	transform: translateX(-150px);
+	}
+}
+div.dead{
+	background-image:url(../media/skull.png);
 }
